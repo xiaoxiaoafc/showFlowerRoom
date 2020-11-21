@@ -1,0 +1,197 @@
+page{  
+  background: #f5f5f5;  
+}  
+/*总体主盒子*/  
+.container {  
+  position: absolute;  
+  width: 100%;  
+  height: 100%;  
+  background-color: #fff;  
+  color: #939393; 
+}
+ /*左侧栏主盒子*/  
+.nav_left{  
+  /*设置行内块级元素（没使用定位）*/  
+  position: absolute;
+  top: 22%;left: 0;
+  width: 25%;  
+  height: 77%;  
+  /*主盒子设置背景色为灰色*/  
+  background: #f5f5f5;  
+  text-align: center;  
+}  
+/*左侧栏list的item*/  
+.nav_left .nav_left_items{  
+  /*每个高30px*/  
+  height: 40px;  
+  /*垂直居中*/  
+  line-height: 40px;  
+  /*再设上下padding增加高度，总高42px*/  
+ 
+  /*只设下边线*/  
+  border-bottom: 1px solid #dedede;  
+  /*文字14px*/  
+  font-size: 14px; 
+}  
+/*左侧栏list的item被选中时*/  
+.nav_left .nav_left_items.active{  
+  /*背景色变成白色*/  
+  background: white;  
+  color: #f0145a; 
+}  
+/*右侧栏主盒子*/  
+.nav_right{  
+  /*右侧盒子使用了绝对定位 
+  /* */  
+  position: absolute;
+  top: 22%;  
+  right: 0;  
+  flex: 1;  
+  /*宽度75%，高度占满，并使用百分比布局*/  
+  width: 75%;  
+  height: 1000px;  
+  padding: 10px;  
+  box-sizing: border-box;  
+  background: #fff;  
+}  
+/*右侧栏list的item*/  
+.nav_right .nav_right_items{  
+  /*浮动向左*/  
+  float: left;  
+  /*每个item设置宽度是33.33%*/  
+  /*width: 33.33%;  */
+  width: 100%;
+  /*text-align: center;  */
+
+}  
+.nav_right .nav_right_items image{  
+  /*被图片设置宽高*/  
+  width: 85px;  
+  height: 85px;  
+  margin-top: 15px;  
+  float: left;
+}  
+
+/*
+.nav_right .nav_right_items text{  
+
+  display: block;  
+  margin-top: 15px;  
+  font-size: 14px;  
+  color: black;
+
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow: ellipsis;  
+} 
+*/
+.nodata_text
+{
+  color: black;
+  font-size: 14px;  
+  text-align: center;  
+}
+
+
+.text_view {
+
+ float: left;
+ margin-left: 8px;
+
+}
+
+
+ .text_view .text_view_item text{
+  float: left;
+  display: block;  
+  margin-top: 15px;  
+  font-size: 14px;  
+  color: black;
+  overflow: hidden;  
+  white-space: nowrap;  
+  text-overflow: ellipsis;  
+
+}
+
+.product_des{
+  float: left;
+  font-size: 14px;  
+  color: black;
+  display: block;
+}
+.nav_right .nav_right_items button{
+  width: 100%;
+  background-color: springgreen;
+}
+
+
+.info{
+  position: absolute;
+  top: 0;left: 0;
+  width: 100%;  
+  height: 20%;  
+  background: #FF3300;
+  color:#ffff;
+}
+
+
+.info .info_clent{
+
+  display: block;
+  float: left;
+  height: 67%;
+  margin-top:10px
+}
+
+.info .info_clent image{
+  width: 70px;
+  height: 70px;
+  margin-left: 10%;
+  float: left;
+}
+
+.info .info_clent_text{
+  width:60%;
+  display: block;
+  float: left;
+  margin-left: 7px;
+}
+
+.info .info_clent_text text{
+  display: block;
+}
+
+
+.info .inf_button{
+  float: left;
+  width: 100%;
+  display: block;
+}
+.info .inf_button text{
+  display: block;
+  text-align: center;
+}
+.tocar{
+  position: absolute;
+  width:100%;
+  height: 30px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 2;
+  background:red
+}
+
+.tocar view{
+  float:left;
+  border: solid 1px ;
+  width:30%;
+  text-align: center;
+  line-height: 30px;
+  height: 100%;
+}
+
+.tocar .tocar_tocar{
+  border-right: none;
+}
+

@@ -1,0 +1,17 @@
+{
+  "pages":[
+    
+    "pages/product/product",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/shoppingCar/shoppingCar"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小花间下单",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

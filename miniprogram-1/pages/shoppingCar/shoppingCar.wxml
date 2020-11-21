@@ -1,0 +1,89 @@
+<view class="container">
+  <view class="order">
+    <view class="order_title"> 
+      <text>订单信息</text>
+    </view>
+    <view class="order_info">
+      <view class="order_info_lable">
+        <text>请输入姓名</text>
+      </view>
+      <view>
+        <input class="weui-input" auto-focus placeholder=""/>
+      </view>
+    </view>
+    <view class="order_info">
+      <view class="order_info_lable">
+        <text>请输入手机号码</text>
+      </view>
+      <view>
+        <input class="weui-input" auto-focus placeholder=""/>
+   
+      </view>
+    </view>
+    <view class="order_info">
+      <view class="order_info_lable">
+        <text>请输入验证码</text>
+      </view>
+      <view>
+        <input class="weui-input" auto-focus placeholder=""/>
+      </view>
+    </view>
+    <view class="order_info">
+      <view class="order_info_lable">
+        <text>配送方式</text>
+      </view>
+      <view >
+        <radio-group name="radio">
+          <label><radio value="radio1"/>配送</label>
+          <label><radio value="radio2"/>到店</label>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="product">
+    <view class="product_title"> 
+      <text>订单信息</text>
+    </view>
+    <view class="product_content">
+        <view class="product_title">
+          <view>商品</view>
+          <view>单价</view>
+          <view>数量</view>
+          <view>总计</view>
+        </view>
+        <view class="product_title">
+          <view>商品1</view>
+          <view>12</view>
+          <view>10</view>
+          <view>120</view>
+        </view>
+        <view class="product_title">
+          <view>商品1</view>
+          <view>12</view>
+          <view>10</view>
+          <view>120</view>
+        </view>
+        <view class="product_title"> 
+          <view>商品1</view>
+          <view>12</view>
+          <view>10</view>
+          <view>120</view>
+        </view>
+    </view>
+    <view class="totalprice">
+      <text>1200.00</text>
+      <text>总计：</text>
+     
+    </view>
+    <view class="submitBtn">
+      <button>提交</button>
+    </view>
+    </view>
+
+    
+
+  
+</view>
+

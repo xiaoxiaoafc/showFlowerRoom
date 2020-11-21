@@ -1,0 +1,78 @@
+<!--主盒子-->
+<view class="container">
+  <!--左侧栏-->
+  <view class="info">
+    <view class="info_clent">
+       <image src="https://img.pic88.com/preview/2020/08/03/1596421282177938.jpg?imageMogr2/quality/100!/crop/!640x-0-20|watermark/3/image/aHR0cHM6Ly9qcy5waWM4OC5jb20vd3d3L2NvbW1vbi9pbWcvcGljODgtd2F0ZXIucG5n/gravity/Center/dissolve/100/dx/0/dy/10/image/aHR0cHM6Ly9qcy5waWM4OC5jb20vd3d3L2NvbW1vbi9pbWcvd2gyMzBiZy5wbmc=/dx/0/dy/25/text/SUTvvJoxMjAyMDA3MTcxMzUzNTMyNjEzNzg=/fill/I0ZGRkZGRg==/fontsize/320/dx/30/dy/30" class="info_clent_img"></image>
+       <view class="info_clent_text">
+          <text>花食间</text>
+          <text>地址:广东省，广州市，天河区</text>
+       </view>
+     
+    </view>
+    <view class="inf_button">
+      <text>充值公交卡等等</text>
+    </view>
+  </view>
+  <view class="nav_left">
+    <block wx:for="{{cateItems}}">
+      <!--当前项的id等于item项的id，那个就是当前状态-->
+      <!--用data-index记录这个数据在数组的下标位置，使用data-id设置每个item的id值，供打开2级页面使用-->
+      <view class="nav_left_items {{curNav == item.cate_id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.cate_id}}">{{item.cate_name}}</view>
+    </block>
+  </view>
+  <!--右侧栏-->
+  <scroll-view class="nav_right"
+  scroll-y style="height:78%;"
+  refresher-enabled="{{true}}"
+  refresher-threshold="{{100}}"
+  refresher-default-style="white"
+  refresher-background="lightgreen"
+  bindrefresherpulling="onPulling"
+  bindrefresherrefresh="onRefresh"
+  bindrefresherrestore="onRestore"
+  bindrefresherabort="onAbort"
+  
+  >
+    <!--如果有数据，才遍历项-->
+    <view wx:if="{{cateItems[curIndex].ishaveChild}}">
+      <block wx:for="{{cateItems[curIndex].children}}">
+        <view class="nav_right_items">
+        <!--界面跳转 -->
+          <navigator url="../../detail/detail}}">
+            <image src="{{item.image}}"></image>
+            <view class="text_view">
+              <view class="text_view_item">
+                <text>名称：</text>
+                <text>{{item.name}}</text>
+              </view>
+              <view class="text_view_item">
+                <text>价格：</text>
+                <text>￥22</text>
+              </view>
+              <view class="text_view_item">
+                <text>库存：</text>
+                <text>100件</text>
+              </view>
+            </view>
+            <view class="product_des">
+                <text class="product_des_title">简介</text>
+                <text class="product_des_text">很不错我很喜欢吃，很大分量很够</text>
+            </view>
+            <button>加入购物车</button>
+          </navigator>
+        </view>
+      </block>
+    </view>
+    <!--如果无数据，则显示数据-->
+    <view class="nodata_text" wx:else>该分类暂无数据</view>
+  </scroll-view>
+</view>
+
+<view class="tocar">
+  <view class="tocar_car">购物车</view>
+  <view class="tocar_price">价格:12</view>
+  <view class="tocar_tocar">
+    <navigator url="/pages/shoppingCar/shoppingCar" hover-class="navigator-hover">下单</navigator>
+  </view>
+</view>
