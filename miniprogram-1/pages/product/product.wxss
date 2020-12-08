@@ -97,9 +97,12 @@ page{
 
  float: left;
  margin-left: 8px;
+ 
 
 }
-
+.text_view .text_view_item{
+ 
+}
 
  .text_view .text_view_item text{
   float: left;
@@ -174,7 +177,7 @@ page{
 .tocar{
   position: absolute;
   width:100%;
-  height: 30px;
+  height: 36px;
   bottom: 0px;
   right: 0px;
   left: 0px;

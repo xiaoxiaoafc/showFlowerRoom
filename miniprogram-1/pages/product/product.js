@@ -1,4 +1,5 @@
 // pages/product/product.js
+var common = require('../../comm/constant.js');
 Component({
   /**
    * 组件的属性列表
@@ -11,110 +12,13 @@ Component({
    * 组件的初始数据
    */
   data: {
-    cateItems: [
-      {
-        cate_id: 1,
-        cate_name: "蛋糕",
-        ishaveChild: true,
-        children:
-        [
-          {
-            child_id: 1,
-            name: '洁面皂',
-            image: "https://img.pic88.com/preview/2020/08/03/1596421282177938.jpg?imageMogr2/quality/100!/crop/!640x-0-20|watermark/3/image/aHR0cHM6Ly9qcy5waWM4OC5jb20vd3d3L2NvbW1vbi9pbWcvcGljODgtd2F0ZXIucG5n/gravity/Center/dissolve/100/dx/0/dy/10/image/aHR0cHM6Ly9qcy5waWM4OC5jb20vd3d3L2NvbW1vbi9pbWcvd2gyMzBiZy5wbmc=/dx/0/dy/25/text/SUTvvJoxMjAyMDA3MTcxMzUzNTMyNjEzNzg=/fill/I0ZGRkZGRg==/fontsize/320/dx/30/dy/30"
-          },
-          {
-            child_id: 2,
-            name: '卸妆',
-            image: "https://img.pic88.com/preview/2020/08/03/1596421282177938.jpg?imageMogr2/quality/100!/crop/!640x-0-20|watermark/3/image/aHR0cHM6Ly9qcy5waWM4OC5jb20vd3d3L2NvbW1vbi9pbWcvcGljODgtd2F0ZXIucG5n/gravity/Center/dissolve/100/dx/0/dy/10/image/aHR0cHM6Ly9qcy5waWM4OC5jb20vd3d3L2NvbW1vbi9pbWcvd2gyMzBiZy5wbmc=/dx/0/dy/25/text/SUTvvJoxMjAyMDA3MTcxMzUzNTMyNjEzNzg=/fill/I0ZGRkZGRg==/fontsize/320/dx/30/dy/30"
-          }
-        ]
-      },
-      {
-        cate_id: 2,
-        cate_name: "面包",
-        ishaveChild: true,
-        children:
-        [
-          {
-            child_id: 1,
-            name: '气垫bb',
-            image: "https://img.pic88.com/preview/2020/08/03/1596421282177938.jpg?imageMogr2/quality/100!/crop/!640x-0-20|watermark/3/image/aHR0cHM6Ly9qcy5waWM4OC5jb20vd3d3L2NvbW1vbi9pbWcvcGljODgtd2F0ZXIucG5n/gravity/Center/dissolve/100/dx/0/dy/10/image/aHR0cHM6Ly9qcy5waWM4OC5jb20vd3d3L2NvbW1vbi9pbWcvd2gyMzBiZy5wbmc=/dx/0/dy/25/text/SUTvvJoxMjAyMDA3MTcxMzUzNTMyNjEzNzg=/fill/I0ZGRkZGRg==/fontsize/320/dx/30/dy/30"
-          },
-          {
-            child_id: 2,
-            name: '修容/高光',
-            image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604990719445&di=4b810d9cf1973de1888cba352daa92bd&imgtype=0&src=http%3A%2F%2Fpic27.nipic.com%2F20130318%2F6983813_155242755158_2.jpg"
-          },
-          {
-            child_id: 3,
-            name: '遮瑕',
-            image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604990719445&di=4b810d9cf1973de1888cba352daa92bd&imgtype=0&src=http%3A%2F%2Fpic27.nipic.com%2F20130318%2F6983813_155242755158_2.jpg"
-          },
-          {
-            child_id: 4,
-            name: '腮红',
-            image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604990719445&di=4b810d9cf1973de1888cba352daa92bd&imgtype=0&src=http%3A%2F%2Fpic27.nipic.com%2F20130318%2F6983813_155242755158_2.jpg"
-          },
-          {
-            child_id: 5,
-            name: '粉饼',
-            image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1604990719445&di=4b810d9cf1973de1888cba352daa92bd&imgtype=0&src=http%3A%2F%2Fpic27.nipic.com%2F20130318%2F6983813_155242755158_2.jpg"
-          },
-          {
-            child_id: 6,
-            name: '粉底',
-            image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153817721.jpg"
-          },
-          {
-            child_id: 7,
-            name: '蜜粉/散粉',
-            image: "http://mz.djmall.xmisp.cn/files/logo/20161212/148153819354.jpg"
-          },
-          {
-            child_id: 8,
-            name: '隔离霜',
-            image: "http://mz.djmall.xmisp.cn/files/logo/20161215/148179053369.jpg"
-          }
-        ]
-      },
-      {
-        cate_id: 3,
-        cate_name: "奶酪/馅饼",
-        ishaveChild: true,
-        children:
-        [
-          {
-            child_id: 1,
-            name: '淡香水EDT',
-            image: "http://mz.djmall.xmisp.cn/files/logo/20161213/14815978910.jpg"
-          },
-          {
-            child_id: 2,
-            name: '浓香水EDP',
-            image: "http://mz.djmall.xmisp.cn/files/logo/20161213/148159789883.jpg"
-          },
-          {
-            child_id: 3,
-            name: '香体走珠',
-            image: "http://mz.djmall.xmisp.cn/files/logo/20161213/14815979307.jpg"
-          },
-          {
-            child_id: 4,
-            name: '古龙香水男士的最爱',
-            image: "http://mz.djmall.xmisp.cn/files/logo/20161213/148159765589.jpg"
-          }
-        ]
-      },
-      {
-        cate_id: 4,
-        cate_name: "个人护理",
-        ishaveChild: false,
-        children: []
-      }
-    ],
+    cardItems : [],
+    carNum : 0,
+    totalPrice :0.00,
+    cateItems: [],
     curNav: 1,
     curIndex: 0,
+    
 
   },
 
@@ -122,28 +26,113 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+    toOrder : function(){
+      if(this.data.cardItems.length == 0){
+        wx.showToast({
+          title: '购物车为空！',
+          icon: 'none',
+          duration: 2000
+        })
+    
+      }else{
+        wx.navigateTo({
+          url: '../shoppingCar/shoppingCar?cardItems= ' + JSON.stringify(this.data.cardItems),
+        })
+      }
+
+     
+    },
+    addCarTab : function(e){
+      var product = e.target.dataset;
+      var cardItems = this.data.cardItems;
+      var isAdd = true;
+      for(var i = 0; i < cardItems.length; i ++){
+        if(cardItems[i].id == product.id){
+          cardItems[i].num = cardItems[i].num + 1;
+          cardItems[i].totalPrice = cardItems[i].price * cardItems[i].num;
+          isAdd = false;
+        }
+      }
+      if(isAdd){
+        product.num = 1;
+        product.totalPrice = product.price;
+        product.stock = product.stock;
+        this.data.cardItems.push(product);
+      }
+      
+      console.log(this.data.cardItems);
+      this.data.carNum = this.data.carNum + 1  ;
+      this.data.totalPrice =  this.data.totalPrice + product.price;
+      this.setData({
+        carNum : this.data.carNum,
+        totalPrice : this.data.totalPrice
+      });
+
+    },
+    findProduct : function(cateItems,index){
+      var th = this;
+        wx.request({
+          url: common.productUrl + "?type=" + cateItems[index].cate_id,
+          method : "post",
+          success : function(data){
+            var childDatas = data.data.data;
+            var children = [];
+            for(var i = 0; i < childDatas.length; i ++){
+              var c = {};
+              c.child_id = childDatas[i].id;
+              c.name = childDatas[i].name;
+              c.image = childDatas[i].picture;
+              c.price = childDatas[i].price;
+              c.stock = childDatas[i].stock;
+              c.des = childDatas[i].des;
+              children.push(c);
+            }
+            cateItems[index].children = children;
+            if(children.length > 0){
+              cateItems[index].ishaveChild = true;
+            }else{
+              cateItems[index].ishaveChild = false;
+            }
+            
+            th.setData({
+              cateItems : cateItems,
+              curNav: cateItems[index].cate_id,
+              curIndex: index
+            })
+            
+          }
+        })
+    },
+
     switchRightTab: function (e) {
       // 获取item项的id，和数组的下标值  
       let id = e.target.dataset.id,
         index = parseInt(e.target.dataset.index);
       // 把点击到的某一项，设为当前index  
+      this.findProduct(this.data.cateItems,index);
       this.setData({
         curNav: id,
         curIndex: index
       })
     },
     onReady: function () {
-      const arr = []
-      for (let i = 0; i < 100; i++) arr.push(i)
-      this.setData({
-        arr
+      var th =  this;
+      wx.request({
+        url: common.productTypeUrl,
+        success : function(data){
+          var dataCateItems = data.data.data.content;
+          var cateItems = [];
+          for(var i = 0; i < dataCateItems.length; i++){
+            var cateItem = {};
+            var cData = dataCateItems[i];
+            cateItem.cate_id = cData.id;
+            cateItem.cate_name = cData.name;
+            cateItems.push(cateItem);
+          }
+          th.findProduct(cateItems,0);
+        }
       })
-  
-      setTimeout(() => {
-        this.setData({
-          triggered: true,
-        })
-      }, 1000)
     },
   
     onPulling(e) {

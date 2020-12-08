@@ -8,7 +8,7 @@
         <text>请输入姓名</text>
       </view>
       <view>
-        <input class="weui-input" auto-focus placeholder=""/>
+        <input bindinput="nameInput" class="weui-input" auto-focus placeholder=""/>
       </view>
     </view>
     <view class="order_info">
@@ -16,16 +16,17 @@
         <text>请输入手机号码</text>
       </view>
       <view>
-        <input class="weui-input" auto-focus placeholder=""/>
+        <input  bindinput="phoneinput"  class="weui-input"  placeholder=""/>
    
       </view>
     </view>
     <view class="order_info">
       <view class="order_info_lable">
-        <text>请输入验证码</text>
+        <text>请输入验证码</text> 
       </view>
       <view>
-        <input class="weui-input" auto-focus placeholder=""/>
+        <input bindinput="codeInput"  class="weui-input" style="width:39%;display:block;float:left" auto-focus placeholder=""/>
+        <view bindtap="sendCode" style="text-align: center"  >{{senCodeText}}</view>
       </view>
     </view>
     <view class="order_info">
@@ -34,9 +35,18 @@
       </view>
       <view >
         <radio-group name="radio">
-          <label><radio value="radio1"/>配送</label>
-          <label><radio value="radio2"/>到店</label>
+          <label bindtap="peisong" data-c = "1" ><radio bindtap="peisong"  data-c = "1"   checked="checked"  value="radio1"/>配送</label>
+          <label bindtap="peisong" data-c = "2"  ><radio  value="radio2"  />到店</label>
         </radio-group>
+      </view>
+    </view>
+    <view class="order_info" style="display:{{ypeisong}}">
+      <view class="order_info_lable"  >
+        <text>请输入配送地址:</text>
+      </view>
+      <view>
+        <input bindinput="addressInput"  class="weui-input" auto-focus placeholder=""/>
+   
       </view>
     </view>
   </view>
@@ -52,33 +62,22 @@
           <view>单价</view>
           <view>数量</view>
           <view>总计</view>
+        </view> 
+        <view  wx:for="{{cateItems}}" wx:key="*this" class="product_title">
+          <view>{{item.name}}</view>
+          <view>{{item.price}}</view>
+          <view>{{item.num}}</view>
+          <view>{{item.totalPrice}}</view>
         </view>
-        <view class="product_title">
-          <view>商品1</view>
-          <view>12</view>
-          <view>10</view>
-          <view>120</view>
-        </view>
-        <view class="product_title">
-          <view>商品1</view>
-          <view>12</view>
-          <view>10</view>
-          <view>120</view>
-        </view>
-        <view class="product_title"> 
-          <view>商品1</view>
-          <view>12</view>
-          <view>10</view>
-          <view>120</view>
-        </view>
+
     </view>
     <view class="totalprice">
-      <text>1200.00</text>
+      <text>{{totalPrice}}</text>
       <text>总计：</text>
      
     </view>
     <view class="submitBtn">
-      <button>提交</button>
+      <button  bindtap="submitOrder">提交</button>
     </view>
     </view>
 

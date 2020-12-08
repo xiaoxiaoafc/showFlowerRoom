@@ -26,12 +26,13 @@
 }
 .container .order .order_info view{
   float: left;
-  width: 40%;
+  width: 54%;
   margin-top:3px;
 }
 
 .container .order .order_info .order_info_lable{
   margin-left: 0px;
+  width:40%;
 }
 
 .container .order .order_info input{
@@ -56,9 +57,9 @@
   left: 0;
   right: 0;
 
-  top: 136px;
+  top: 190px;
   border-top: 1px solid;
-  height: 70%;
+  height: 60%;
 
 }
 
@@ -77,6 +78,8 @@
 .product_content .product_title view{
   float: left;
   width: 25%;
+  height: 25px;
+  overflow: hidden;
 }
 .totalprice{
   margin-top: 10px;
