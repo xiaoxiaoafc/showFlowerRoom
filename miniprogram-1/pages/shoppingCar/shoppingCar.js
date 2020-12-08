@@ -29,41 +29,116 @@ Component({
   methods: {
 
     submitOrder : function(){
-        console.log(this.data.codeInput);
+       
+       var th = this;
         var content = "";
+        var isNextData = false;
         for(var i = 0 ; i <  this.data.cateItems.length; i ++){
           content += this.data.cateItems[i].id + "|" + this.data.cateItems[i].num + ",";
-        }
-        var timestamps = Math.round(new Date().getTime() / 1000).toString();
-        var data = {
-          phonecode : this.data.codeInput,
-          paytime : timestamps,
-          phone : this.data.messCodeInput,
-          sendtime: timestamps,
-          content:content,
-          name : this.data.nameInput,
-          address : this.data.addressInput,
-          ttp: this.data.peisong == "block" ? 1 : 0,
-          state : 0,
-          id:1
-        }
-
-        wx.request({
-          url: common.saveOrderUrl,
-          data : data,
-          method : "post",
-          success : function(data){
-            console.log(data);
-            wx.navigateTo({
-              url: '../product/product',
-            })
-          },
-          header: {
-            'content-type': 'application/x-www-form-urlencoded' //修改此处即可
+          if(this.data.cateItems[i].stock < 1){
+            isNextData = true;
           }
-        })
+        }
+        if(isNextData){
+          wx.showModal({
+            title: '提示',
+            content: '商品有预约商品，需要第二天才能取货!',
+            success (res) {
+              if (res.confirm) {
+                th.submitContent(content);
+                
+              } else if (res.cancel) {
+                
+              }
+            }
+          });
+        }else{
+          th.submitContent(content);
+        }
+      
 
+
+       
+       
+       
         console.log(content);
+    },
+
+    submitContent : function (content) {
+      if(!this.data.nameInput){
+        wx.showToast({
+          title: '请输入姓名',
+          icon : 'none',
+          duration: 2000
+        })
+        return ;
+      }
+      if(!this.data.messCodeInput){
+        wx.showToast({
+          title: '请输入电话号码',
+          icon : 'none',
+          duration: 2000
+        })
+        return ;
+      }
+      if(!this.data.codeInput){
+        wx.showToast({
+          title: '请输入验证码',
+          icon : 'none',
+          duration: 2000
+        })
+        return ;
+      }
+      
+      var timestamps = Math.round(new Date().getTime() / 1000).toString();
+      var data = {
+        phonecode : this.data.codeInput,
+        paytime : timestamps,
+        phone : this.data.messCodeInput,
+        sendtime: timestamps,
+        content:content,
+        name : this.data.nameInput,
+        address : this.data.addressInput,
+        ttp: this.data.peisong == "block" ? 1 : 0,
+        state : 0,
+        id:1
+      }
+      wx.showLoading({
+        title: '提交中',
+      })
+      wx.request({
+        url: common.saveOrderUrl,
+        data : data,
+        method : "post",
+        success : function(data){
+          wx.hideLoading();
+          if(data.data.resultCode == 1){
+            wx.showToast({
+              title: '下单成功!',
+              icon : 'none',
+              duration: 2000
+            });
+            setTimeout(function () {
+              wx.navigateTo({
+                url: '../product/product',
+              });
+            }, 2000)
+         
+           
+          }else{
+            wx.showToast({
+              title: data.data.resultMessage,
+              icon : 'none',
+              duration: 2000
+            })
+          }
+         
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' //修改此处即可
+        }
+      })
+
     },
 
     addressInput : function(e){
