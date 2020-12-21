@@ -56,12 +56,6 @@ Component({
           th.submitContent(content);
         }
       
-
-
-       
-       
-       
-        console.log(content);
     },
 
     submitContent : function (content) {

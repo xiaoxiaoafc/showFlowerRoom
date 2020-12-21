@@ -45,7 +45,7 @@
         <text>请输入配送地址:</text>
       </view>
       <view>
-        <input bindinput="addressInput"  class="weui-input" auto-focus placeholder=""/>
+        <input bindinput="addressInput"  class="weui-input"  placeholder=""/>
    
       </view>
     </view>
