@@ -19,8 +19,10 @@ Component({
     nameInput : "",
     messCodeInput : "",
     codeInput : "",
-    addressInput : ""
-
+    addressInput : "",
+    items: [{ name: '日期时间选择', value: 'dateTime' }],
+    selectDate : "",
+    mode: 'dateTime'
   },
 
   /**
@@ -29,7 +31,17 @@ Component({
   methods: {
 
     submitOrder : function(){
-       
+       var selectSendData = null;
+       if(this.data.selectDate.length < 1){
+        selectSendData = Math.round(new Date().getTime() / 1000).toString();
+       }else{
+        var time = this.data.selectDate;
+        var repTime = time.replace(/-/g, '/');//用正则主要是把“2019-05-20 00:00:00”转换成“2019/05/0 00:00:00”兼容ios
+        console.log("返回时间：" + repTime);
+        var timeTamp = Date.parse(repTime);
+        selectSendData = timeTamp/1000;
+        console.log("返回时间戳：" + selectSendData)
+       }
        var th = this;
         var content = "";
         var isNextData = false;
@@ -217,6 +229,10 @@ Component({
           cateItems : cardItems,
           totalPrice : totalPrice
         });
+    },
+    onPickerChange(e) {
+      console.log("onPickerChange", e)
+      this.data.selectDate = e.detail.value;
     }
 
   }

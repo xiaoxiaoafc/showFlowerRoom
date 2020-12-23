@@ -36,9 +36,37 @@ Component({
         })
     
       }else{
-        wx.navigateTo({
-          url: '../shoppingCar/shoppingCar?cardItems= ' + JSON.stringify(this.data.cardItems),
-        })
+        var th = this;
+        var content = "";
+        var isNextData = false;
+        for(var i = 0 ; i <  this.data.cardItems.length; i ++){
+          content += this.data.cardItems[i].id + "|" + this.data.cardItems[i].num + ",";
+          if(this.data.cardItems[i].stock < 1){
+            isNextData = true;
+          }
+        }
+        if(isNextData){
+          wx.showModal({
+            title: '提示',
+            content: '商品有预约商品，需要第二天才能取货!',
+            success (res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '../shoppingCar/shoppingCar?cardItems= ' + JSON.stringify(th.data.cardItems),
+                })
+                
+              } else if (res.cancel) {
+                
+              }
+            }
+          });
+        }else{
+          wx.navigateTo({
+            url: '../shoppingCar/shoppingCar?cardItems= ' + JSON.stringify(this.data.cardItems),
+          })
+        }
+
+      
       }
 
      

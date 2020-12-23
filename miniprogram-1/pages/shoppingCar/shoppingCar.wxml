@@ -46,8 +46,17 @@
       </view>
       <view>
         <input bindinput="addressInput"  class="weui-input"  placeholder=""/>
-   
       </view>
+    </view>
+
+    <view class="order_info" style="display:{{ypeisong}}">
+      <view class="order_info_lable"  >
+        <text>配送时间:</text>
+      </view>
+      <view >
+        <time-picker mode="{{mode}}"  class="picker" placeholder="请选择时间" bind:onPickerChange="onPickerChange"></time-picker>
+      </view>
+      
     </view>
   </view>
 

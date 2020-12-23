@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "time-picker": "../../../components/timePicker/index"
+}
 }
