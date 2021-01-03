@@ -82,7 +82,7 @@ Component({
       var isAdd = true;
       for(var i = 0; i < cardItems.length; i ++){
         if(cardItems[i].id == product.id){
-          cardItems[i].num = cardItems[i].num + product.nun;
+          cardItems[i].num = cardItems[i].num + product.num;
           cardItems[i].totalPrice = cardItems[i].price * cardItems[i].num;
           isAdd = false;
         }
