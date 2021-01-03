@@ -67,7 +67,7 @@ page{
 .nav_right .nav_right_items image{  
   /*被图片设置宽高*/  
   width: 85px;  
-  height: 85px;  
+  height: 115px;  
   margin-top: 15px;  
   float: left;
 }  
@@ -196,5 +196,17 @@ page{
 
 .tocar .tocar_tocar{
   border-right: none;
+}
+
+.cartNum{
+  float: left;
+  width: 100%;
+}
+
+.cartNum view{
+  float: left;
+  width: 30px;
+  text-align: center;
+
 }
 

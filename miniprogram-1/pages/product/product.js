@@ -73,15 +73,35 @@ Component({
     },
     addCarTab : function(e){
       var product = e.target.dataset;
+      if(product.num < 0){
+        if(product.oldnum < 1){
+          return;
+        }
+      }
       var cardItems = this.data.cardItems;
       var isAdd = true;
       for(var i = 0; i < cardItems.length; i ++){
         if(cardItems[i].id == product.id){
-          cardItems[i].num = cardItems[i].num + 1;
+          cardItems[i].num = cardItems[i].num + product.nun;
           cardItems[i].totalPrice = cardItems[i].price * cardItems[i].num;
           isAdd = false;
         }
       }
+      //
+      var cateItems = this.data.cateItems;
+      for(var i = 0; i < cateItems.length; i++){
+        var chileds = cateItems[i].children;
+        if(chileds){
+          for(var j = 0; j < chileds.length; j++){
+            if(chileds[j].child_id == product.id){
+              chileds[j].num = chileds[j].num + product.num;
+            }
+          }
+        }
+      }
+
+      console.log(cateItems);
+ 
       if(isAdd){
         product.num = 1;
         product.totalPrice = product.price;
@@ -90,11 +110,17 @@ Component({
       }
       
       console.log(this.data.cardItems);
-      this.data.carNum = this.data.carNum + 1  ;
-      this.data.totalPrice =  this.data.totalPrice + product.price;
+      this.data.carNum = this.data.carNum + product.num  ;
+      if(product.num > 0 ){
+        this.data.totalPrice =  this.data.totalPrice + product.price;
+      }else{
+        this.data.totalPrice =  this.data.totalPrice - product.price;
+      }
+     
       this.setData({
         carNum : this.data.carNum,
-        totalPrice : this.data.totalPrice
+        totalPrice : this.data.totalPrice,
+        cateItems : this.data.cateItems
       });
 
     },
@@ -114,6 +140,7 @@ Component({
               c.price = childDatas[i].price;
               c.stock = childDatas[i].stock;
               c.des = childDatas[i].des;
+              c.num = 0;
               children.push(c);
             }
             cateItems[index].children = children;
